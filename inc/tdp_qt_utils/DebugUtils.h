@@ -65,6 +65,9 @@ void installMessageHandler(const std::function<void(tp_utils::MessageType, const
 //##################################################################################################
 void removeMessageHandler();
 
+//##################################################################################################
+void installDefaultMessageHandler();
+
 }
 
 #endif

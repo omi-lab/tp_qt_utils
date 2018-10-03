@@ -11,6 +11,10 @@
 
 #include <iostream>
 
+#ifdef TDP_ANDROID
+#include <android/log.h>
+#endif
+
 namespace
 {
 
@@ -179,6 +183,43 @@ void removeMessageHandler()
   qInstallMessageHandler(originalMessageHandler);
   combinedMessageHandler_tp = std::function<void(tp_utils::MessageType, const std::string&)>();
   tp_utils::installMessageHandler(std::function<void(tp_utils::MessageType, const std::string&)>());
+}
+
+//##################################################################################################
+//## Platform Abstractions #########################################################################
+//##################################################################################################
+
+#ifdef TDP_ANDROID
+namespace
+{
+//##################################################################################################
+static void messageHandler(QtMsgType messageType,
+                           const QMessageLogContext &context,
+                           const QString &message)
+{
+  TP_UNUSED(context);
+
+  const char* tag="qWarning";
+  switch(messageType)
+  {
+  case QtDebugMsg:   tag="qDebug";   break;
+  case QtWarningMsg: tag="qWarning"; break;
+  default:                           break;
+  }
+
+  __android_log_print(ANDROID_LOG_DEBUG, tag, "%s", qPrintable(message));
+}
+}
+#endif
+
+//##################################################################################################
+void installDefaultMessageHandler()
+{
+#ifdef __ANDROID_API__
+  qInstallMessageHandler(messageHandler);
+#endif
+
+  tp_utils::installDefaultMessageHandler();
 }
 
 }
