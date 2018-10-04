@@ -7,12 +7,11 @@ namespace tdp_qt_utils
 //##################################################################################################
 struct CrossThreadCallback::Private: public QObject
 {
-  std::function<void()> callback;
-  std::function<void()> callFunctor;
+  CrossThreadCallback* q;
 
   //################################################################################################
-  Private(std::function<void()> callback_):
-    callback(std::move(callback_))
+  Private(CrossThreadCallback* q_):
+    q(q_)
   {
 
   }
@@ -24,14 +23,14 @@ struct CrossThreadCallback::Private: public QObject
 //##################################################################################################
 void CrossThreadCallback::Private::customEvent(QEvent*)
 {
-  callback();
+  q->callback();
 }
 
 //##################################################################################################
 CrossThreadCallback::CrossThreadCallback(const std::function<void()>& callback):
-  d(new Private(callback))
+  tp_utils::AbstractCrossThreadCallback(callback),
+  d(new Private(this))
 {
-  d->callFunctor = [&]{call();};
 }
 
 //##################################################################################################
@@ -44,12 +43,6 @@ CrossThreadCallback::~CrossThreadCallback()
 void CrossThreadCallback::call()
 {
   QCoreApplication::postEvent(d,new QEvent(QEvent::User));
-}
-
-//##################################################################################################
-const std::function<void()>* CrossThreadCallback::callFunctor()
-{
-  return &d->callFunctor;
 }
 
 }
