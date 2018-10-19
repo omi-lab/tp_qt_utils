@@ -3,18 +3,18 @@
 
 #include "tp_utils/StringID.h"
 
+#if defined(TDP_QT_UTILS_LIBRARY)
+#  define TDP_QT_UTILS_SHARED_EXPORT TP_EXPORT
+#else
+#  define TDP_QT_UTILS_SHARED_EXPORT TP_IMPORT
+#endif
+
 #include <QStringList>
 #include <QDebug>
 
 #include <QtCore/qglobal.h>
 
 #include <ostream>
-
-#if defined(TDP_QT_UTILS_LIBRARY)
-#  define TDP_QT_UTILS_SHARED_EXPORT
-#else
-#  define TDP_QT_UTILS_SHARED_EXPORT
-#endif
 
 //##################################################################################################
 //! Qt classes used throughout the rest of Tdp Toolkit.
