@@ -6,6 +6,7 @@
 #include <QThread>
 
 #include <functional>
+#include <atomic>
 
 namespace tdp_qt_utils
 {
@@ -17,7 +18,8 @@ separate thread. Once the function exits, the thread will end execution.
 */
 class TDP_QT_UTILS_SHARED_EXPORT CallbackThread: public QThread
 {
-  std::function<void()> m_callback;
+  std::atomic_bool m_finish{false};
+  std::function<void(const std::atomic_bool&)> m_callback;
 
 public:
   //################################################################################################
@@ -27,10 +29,10 @@ public:
   \param callback - function for the thread to perform
   \param name - the thread name
   */
-  CallbackThread(std::function<void()> callback, const char* name);
+  CallbackThread(std::function<void(const std::atomic_bool&)> callback, const char* name);
 
   //################################################################################################
-  ~CallbackThread();
+  ~CallbackThread() override;
 
   //################################################################################################
   //! Provide access to QThread::exec()

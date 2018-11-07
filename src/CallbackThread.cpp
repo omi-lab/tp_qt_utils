@@ -6,7 +6,7 @@ namespace tdp_qt_utils
 {
 
 //##################################################################################################
-CallbackThread::CallbackThread(std::function<void()> callback, const char* name):
+CallbackThread::CallbackThread(std::function<void(const std::atomic_bool&)> callback, const char* name):
   m_callback(std::move(callback))
 {
   setObjectName(name);
@@ -15,6 +15,7 @@ CallbackThread::CallbackThread(std::function<void()> callback, const char* name)
 //##################################################################################################
 CallbackThread::~CallbackThread()
 {
+  m_finish=true;
   quit();
   wait();
 }
@@ -28,7 +29,7 @@ int CallbackThread::exec()
 //##################################################################################################
 void CallbackThread::run()
 {
-  m_callback();
+  m_callback(m_finish);
 }
 
 }
