@@ -15,9 +15,6 @@ HEADERS += inc/tdp_qt_utils/ExplicitStringIDManager.h
 SOURCES += src/Serialization.cpp
 HEADERS += inc/tdp_qt_utils/Serialization.h
 
-SOURCES += src/Interface.cpp
-HEADERS += inc/tdp_qt_utils/Interface.h
-
 SOURCES += src/FileUtils.cpp
 HEADERS += inc/tdp_qt_utils/FileUtils.h
 
