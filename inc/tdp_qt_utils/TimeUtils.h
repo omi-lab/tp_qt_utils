@@ -4,24 +4,9 @@
 #include "tdp_qt_utils/Globals.h"
 
 #include <QDateTime>
-#include <QElapsedTimer>
 
 namespace tdp_qt_utils
 {
-
-//##################################################################################################
-//! Returns the current time as a 64 bit Unix time stamp
-/*!
-\return the current time as a 64 bit Unix time stamp
-*/
-int64_t TDP_QT_UTILS_SHARED_EXPORT currentTime();
-
-//##################################################################################################
-//! Returns the current time as ms since SinceEpoch
-/*!
-\return the current time as ms since since the epoch
-*/
-int64_t TDP_QT_UTILS_SHARED_EXPORT currentTimeMS();
 
 //##################################################################################################
 //! Returns the current time as a QDateTime, in UTC.
@@ -97,12 +82,5 @@ private:
 
 
 }
-#ifdef TDP_ENABLE_TIMING_STATS
-#define TDP_START_TIMER(name)QElapsedTimer name##_timer; name##_timer.start()
-#define TDP_LOG_TIMER(name)tdp_qt_utils::TimingStats::logTime(#name, __FILE__, __LINE__, name##_timer.elapsed())
-#else
-#define TDP_START_TIMER(name)
-#define TDP_LOG_TIMER(name)
-#endif
 
 #endif

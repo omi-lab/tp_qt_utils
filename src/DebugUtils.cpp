@@ -1,12 +1,13 @@
 #include "tdp_qt_utils/DebugUtils.h"
 #include "tp_utils/StackTrace.h"
-#include "tdp_qt_utils/TimeUtils.h"
+#include "tp_utils/TimeUtils.h"
 
 #include "tp_utils/StackTrace.h"
 #include "tp_utils/DebugUtils.h"
 
 #include <QtGlobal>
 #include <QTextStream>
+#include <QDateTime>
 #include <QFile>
 
 #include <iostream>
@@ -66,7 +67,7 @@ bool writeLogEntry(const QString& logPath, QString txt)
   if(!outFile.open(QIODevice::ReadWrite | QIODevice::Append))
     return false;
 
-  txt.prepend(QDateTime::fromMSecsSinceEpoch(currentTime()*Q_INT64_C(1000)).toString("[dd/MM/yy hh:mm:ss.zzz]"));
+  txt.prepend(QDateTime::fromMSecsSinceEpoch(tp_utils::currentTime()*Q_INT64_C(1000)).toString("[dd/MM/yy hh:mm:ss.zzz]"));
 
   int64_t seekTo = outFile.size();
   if(seekTo>maxLength)
@@ -158,7 +159,7 @@ std::function<void(tp_utils::MessageType, const std::string&)> combinedMessageHa
 //##################################################################################################
 void combinedMessageHandler_qt(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
-  Q_UNUSED(context);
+  TP_UNUSED(context);
 
   tp_utils::MessageType t = tp_utils::MessageType::Warning;
   if(type == QtDebugMsg)

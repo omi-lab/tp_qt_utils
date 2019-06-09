@@ -1,5 +1,7 @@
 #include "tdp_qt_utils/TimeUtils.h"
+
 #include "tp_utils/MutexUtils.h"
+#include "tp_utils/TimeUtils.h"
 
 #include <QObject>
 #include <QDateTime>
@@ -21,21 +23,9 @@ struct TimeDetails_lt
 }
 
 //##################################################################################################
-int64_t currentTime()
-{
-  return std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-}
-
-//##################################################################################################
-int64_t currentTimeMS()
-{
-  return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-}
-
-//##################################################################################################
 QDateTime currentDateTime()
 {
-  return QDateTime::fromMSecsSinceEpoch(currentTime()*1000ll,Qt::UTC);
+  return QDateTime::fromMSecsSinceEpoch(tp_utils::currentTime()*1000ll,Qt::UTC);
 }
 
 //##################################################################################################
@@ -58,7 +48,7 @@ QString timeDiff()
 
   TP_MUTEX_LOCKER(mutex);
 
-  int64_t timeMS = currentTimeMS();
+  int64_t timeMS = tp_utils::currentTimeMS();
 
   QString time = QString::number(timeMS);
   QString diff = (previousTime<1) ? QString() : QString::number(timeMS-previousTime);
@@ -160,7 +150,7 @@ struct TimingStats::Private
 //##################################################################################################
 void TimingStats::logTime(const char* name, const char* file, int line, int time)
 {
-  Private* d = instance();
+  auto* d = instance();
   TP_MUTEX_LOCKER(d->mutex);
 
   QString index = QString("%1:%2").arg(file).arg(line);
@@ -174,7 +164,7 @@ void TimingStats::logTime(const char* name, const char* file, int line, int time
 //##################################################################################################
 QString TimingStats::takeResults()
 {
-  Private* d = instance();
+  auto* d = instance();
   TP_MUTEX_LOCKER(d->mutex);
 
   QString result = tdp_qt_utils::currentTimeString() + "\n";
