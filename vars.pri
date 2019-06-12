@@ -27,9 +27,6 @@ HEADERS += inc/tdp_qt_utils/ValidationUtils.h
 SOURCES += src/BinaryUtils.cpp
 HEADERS += inc/tdp_qt_utils/BinaryUtils.h
 
-SOURCES += src/CallbackThread.cpp
-HEADERS += inc/tdp_qt_utils/CallbackThread.h
-
 SOURCES += src/EventDebug.cpp
 HEADERS += inc/tdp_qt_utils/EventDebug.h
 

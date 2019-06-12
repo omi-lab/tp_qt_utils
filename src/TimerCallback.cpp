@@ -6,19 +6,12 @@ namespace tdp_qt_utils
 {
 
 //##################################################################################################
-TimerCallback::TimerCallback(void* opaque, void (*callback)(void* opaque), int timeOut):
-  m_timer(new QTimer())
-{
-  QObject::connect(m_timer, &QTimer::timeout, [opaque, callback](){callback(opaque);});
-  m_timer->start(timeOut);
-}
-
-//##################################################################################################
-TimerCallback::TimerCallback(const std::function<void()>& callback, int timeOut):
+TimerCallback::TimerCallback(const std::function<void()>& callback, int64_t timeOutMS):
+  tp_utils::AbstractTimerCallback(callback, timeOutMS),
   m_timer(new QTimer())
 {
   QObject::connect(m_timer, &QTimer::timeout, callback);
-  m_timer->start(timeOut);
+  m_timer->start(int(timeOutMS));
 }
 
 //##################################################################################################
@@ -28,15 +21,9 @@ TimerCallback::~TimerCallback()
 }
 
 //##################################################################################################
-void TimerCallback::setTimeOut(int timeOut)
+void TimerCallback::setTimeOutMS(int64_t timeOutMS)
 {
-  m_timer->setInterval(timeOut);
-}
-
-//##################################################################################################
-int TimerCallback::timeOut()
-{
-  return m_timer->interval();
+  m_timer->setInterval(int(timeOutMS));
 }
 
 }

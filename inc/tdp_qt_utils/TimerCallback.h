@@ -3,6 +3,8 @@
 
 #include "tdp_qt_utils/Globals.h"
 
+#include "tp_utils/AbstractTimerCallback.h"
+
 #include <functional>
 
 class QTimer;
@@ -11,25 +13,22 @@ namespace tdp_qt_utils
 {
 
 //##################################################################################################
-class TDP_QT_UTILS_SHARED_EXPORT TimerCallback
+class TDP_QT_UTILS_SHARED_EXPORT TimerCallback : public tp_utils::AbstractTimerCallback
 {
   QTimer* m_timer;
 public:
   //################################################################################################
-  TimerCallback(void* opaque, void (*callback)(void* opaque), int timeOut);
+  TimerCallback(const std::function<void()>& callback, int64_t timeOutMS);
 
   //################################################################################################
-  TimerCallback(const std::function<void()>& callback, int timeOut);
+  ~TimerCallback() override;
 
   //################################################################################################
-  ~TimerCallback();
-
-  //################################################################################################
-  void setTimeOut(int timeOut);
-
-  //################################################################################################
-  int timeOut();
+  void setTimeOutMS(int64_t timeOutMS) override;
 };
+
+//##################################################################################################
+using TimerCallbackFactory = tp_utils::TimerCallbackFactoryTemplate<TimerCallback>;
 
 }
 
