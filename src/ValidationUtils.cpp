@@ -9,7 +9,7 @@ namespace tdp_qt_utils
 //##################################################################################################
 bool validateEmail(const QString& text)
 {
-  static const QRegExp regExp("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b");
+  static const QRegExp regExp(R"(\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b)");
 
   if(text.isEmpty())
     return false;
