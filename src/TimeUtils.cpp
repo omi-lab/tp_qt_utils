@@ -156,7 +156,7 @@ void TimingStats::logTime(const char* name, const char* file, int line, int time
   QString index = QString("%1:%2").arg(file).arg(line);
   TimeDetails_lt& timeDetails = d->timeDetails[index];
 
-  timeDetails.name = QString("%1:%2").arg(name, fixedWidthKeepRight(index, 100-((int) strlen(name)), ' '));
+  timeDetails.name = QString("%1:%2").arg(name, fixedWidthKeepRight(index, 100-(int(strlen(name))), ' '));
   timeDetails.total  += time;
   timeDetails.recent += time;
 }
