@@ -88,7 +88,7 @@ QString serializeProcessStatusMessagesHTML(const QList<ProcessStatusMessage>& st
     statusMessageMap.insert(message.messageName, &message);
 
   QList<tp_utils::StringID> keys = statusMessageMap.keys();
-  qSort(keys.begin(), keys.end(), tp_utils::lessThanStringID);
+  std::sort(keys.begin(), keys.end(), tp_utils::lessThanStringID);
 
   Q_FOREACH(const tp_utils::StringID& key, keys)
   {
