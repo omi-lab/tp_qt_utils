@@ -23,7 +23,7 @@ This module provides a set of general purpose classes that form the core of Tdp 
 */
 namespace tdp_qt_utils
 {
-TDP_DECLARE_ID(     dictionarySID,       "Dictionary")
+TDP_DECLARE_ID(     dictionarySID,       "Dictionary");
 
 //##################################################################################################
 QStringList convertStringList(const std::vector<std::string>& src);
