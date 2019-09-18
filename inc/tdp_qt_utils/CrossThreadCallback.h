@@ -23,17 +23,24 @@ An event will be sent to the receiving thread that causes the callback to be cal
 */
 class TDP_QT_UTILS_SHARED_EXPORT CrossThreadCallback : public tp_utils::AbstractCrossThreadCallback
 {
-  struct Private;
-  Private* d;
 public:
   //################################################################################################
-  CrossThreadCallback(const std::function<void()>& callback);
+  /*!
+  \param callback The callback that will be called in this thread.
+  \param delay If this is zero or positive a timer will be used to collate calls.
+  */
+  CrossThreadCallback(const std::function<void()>& callback, int delay=-1);
 
   //################################################################################################
   ~CrossThreadCallback() override;
 
   //################################################################################################
   void call() override;
+
+private:
+  struct Private;
+  friend struct Private;
+  Private* d;
 };
 
 //##################################################################################################
