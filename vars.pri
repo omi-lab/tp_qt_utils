@@ -54,3 +54,6 @@ HEADERS += inc/tdp_qt_utils/SignalHandler.h
 SOURCES += src/SerialMessage.cpp
 HEADERS += inc/tdp_qt_utils/SerialMessage.h
 
+SOURCES += src/EventLatency.cpp
+HEADERS += inc/tdp_qt_utils/EventLatency.h
+
