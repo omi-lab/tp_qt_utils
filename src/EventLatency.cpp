@@ -69,6 +69,24 @@ std::string EventLatency::takeResults()
 {
   std::string str;
 
+  auto ret = results();
+
+  size_t max{1};
+  for(auto it = ret.begin(); it!=ret.end(); ++it)
+    max = tpMax(it->first.size(), max);
+  max++;
+
+  for(auto it = ret.begin(); it!=ret.end(); ++it)
+  {
+    std::string name = it->first+": ";
+    tp_utils::leftJustified(name, max);
+
+    std::string count = std::to_string(it->second);
+    tp_utils::rightJustified(count, 6);
+
+    str += name + count + '\n';
+  }
+
   return str;
 }
 
