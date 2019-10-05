@@ -1,13 +1,13 @@
-#ifndef tdp_qt_utils_CrossThreadCallback_h
-#define tdp_qt_utils_CrossThreadCallback_h
+#ifndef tp_qt_utils_CrossThreadCallback_h
+#define tp_qt_utils_CrossThreadCallback_h
 
 #include "tp_utils/AbstractCrossThreadCallback.h"
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
 #include <functional>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
@@ -21,7 +21,7 @@ An event will be sent to the receiving thread that causes the callback to be cal
 
 \warning This requires that the receiving thread has an event loop.
 */
-class TDP_QT_UTILS_SHARED_EXPORT CrossThreadCallback : public tp_utils::AbstractCrossThreadCallback
+class tp_qt_UTILS_SHARED_EXPORT CrossThreadCallback : public tp_utils::AbstractCrossThreadCallback
 {
 public:
   //################################################################################################

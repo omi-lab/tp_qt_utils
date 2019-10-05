@@ -1,10 +1,10 @@
-#include "tdp_qt_utils/BinaryUtils.h"
+#include "tp_qt_utils/BinaryUtils.h"
 
 #include <QByteArray>
 #include <QString>
 #include <QMap>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

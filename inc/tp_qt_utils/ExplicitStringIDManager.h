@@ -1,16 +1,16 @@
-#ifndef tdp_qt_utils_ExplicitStringIDManager_h
-#define tdp_qt_utils_ExplicitStringIDManager_h
+#ifndef tp_qt_utils_ExplicitStringIDManager_h
+#define tp_qt_utils_ExplicitStringIDManager_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 #include "tp_utils/StringIDManager.h"
 
 #include <QString>
 #include <QPair>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
-class TDP_QT_UTILS_SHARED_EXPORT ExplicitStringIDManager: public tp_utils::StringIDManager
+class tp_qt_UTILS_SHARED_EXPORT ExplicitStringIDManager: public tp_utils::StringIDManager
 {
 public:
   //################################################################################################

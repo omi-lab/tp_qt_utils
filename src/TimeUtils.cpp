@@ -1,4 +1,4 @@
-#include "tdp_qt_utils/TimeUtils.h"
+#include "tp_qt_utils/TimeUtils.h"
 
 #include "tp_utils/MutexUtils.h"
 #include "tp_utils/TimeUtils.h"
@@ -9,7 +9,7 @@
 
 #include <chrono>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 namespace
@@ -167,7 +167,7 @@ QString TimingStats::takeResults()
   auto* d = instance();
   TP_MUTEX_LOCKER(d->mutex);
 
-  QString result = tdp_qt_utils::currentTimeString() + "\n";
+  QString result = tp_qt_utils::currentTimeString() + "\n";
 
   //-- Sort the mutexes by total -------------------------------------------------------------------
   QList<TimeDetails_lt*> sortedTimeDetails;

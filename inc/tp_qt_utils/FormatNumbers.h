@@ -1,9 +1,9 @@
-#ifndef tdp_qt_utils_FormatNumbers_h
-#define tdp_qt_utils_FormatNumbers_h
+#ifndef tp_qt_utils_FormatNumbers_h
+#define tp_qt_utils_FormatNumbers_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

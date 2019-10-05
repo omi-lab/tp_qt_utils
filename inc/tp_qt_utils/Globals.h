@@ -1,12 +1,12 @@
-#ifndef tdp_qt_utils_Globals_h
-#define tdp_qt_utils_Globals_h
+#ifndef tp_qt_utils_Globals_h
+#define tp_qt_utils_Globals_h
 
 #include "tp_utils/StringID.h"
 
-#if defined(TDP_QT_UTILS_LIBRARY)
-#  define TDP_QT_UTILS_SHARED_EXPORT TP_EXPORT
+#if defined(tp_qt_UTILS_LIBRARY)
+#  define tp_qt_UTILS_SHARED_EXPORT TP_EXPORT
 #else
-#  define TDP_QT_UTILS_SHARED_EXPORT TP_IMPORT
+#  define tp_qt_UTILS_SHARED_EXPORT TP_IMPORT
 #endif
 
 #include <QStringList>
@@ -21,9 +21,9 @@
 /*!
 This module provides a set of general purpose classes that form the core of Tdp Toolkit.
 */
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
-TDP_DECLARE_ID(     dictionarySID,       "Dictionary");
+tp_qt_DECLARE_ID(     dictionarySID,       "Dictionary");
 
 //##################################################################################################
 QStringList convertStringList(const std::vector<std::string>& src);

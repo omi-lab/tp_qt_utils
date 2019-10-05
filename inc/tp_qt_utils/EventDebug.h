@@ -1,12 +1,12 @@
-#ifndef tdp_qt_utils_EventDebug_h
-#define tdp_qt_utils_EventDebug_h
+#ifndef tp_qt_utils_EventDebug_h
+#define tp_qt_utils_EventDebug_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
 #include <QObject>
 #include <QEvent>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
@@ -14,7 +14,7 @@ namespace tdp_qt_utils
 /*!
 
 */
-class TDP_QT_UTILS_SHARED_EXPORT EventDebug: public QObject
+class tp_qt_UTILS_SHARED_EXPORT EventDebug: public QObject
 {
 public:
   //################################################################################################

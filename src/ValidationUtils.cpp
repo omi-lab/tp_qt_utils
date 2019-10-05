@@ -1,9 +1,9 @@
-#include "tdp_qt_utils/ValidationUtils.h"
+#include "tp_qt_utils/ValidationUtils.h"
 
 #include <QSet>
 #include <QRegExp>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

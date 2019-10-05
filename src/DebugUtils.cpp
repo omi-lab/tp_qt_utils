@@ -1,4 +1,4 @@
-#include "tdp_qt_utils/DebugUtils.h"
+#include "tp_qt_utils/DebugUtils.h"
 #include "tp_utils/StackTrace.h"
 #include "tp_utils/TimeUtils.h"
 
@@ -12,7 +12,7 @@
 
 #include <iostream>
 
-#ifdef TDP_ANDROID
+#ifdef tp_qt_ANDROID
 #include <android/log.h>
 #endif
 
@@ -27,9 +27,9 @@ QString prefix;
 QtMessageHandler originalMessageHandler = nullptr;
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
-  QString txt = tdp_qt_utils::formatDebugString(type, context, msg);
+  QString txt = tp_qt_utils::formatDebugString(type, context, msg);
 
-  if(!qDebugLogPath.isEmpty() && tdp_qt_utils::writeLogEntry(qDebugLogPath, txt))
+  if(!qDebugLogPath.isEmpty() && tp_qt_utils::writeLogEntry(qDebugLogPath, txt))
   {
     if(type==QtFatalMsg)
       abort();
@@ -43,7 +43,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
 
 }
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
@@ -190,7 +190,7 @@ void removeMessageHandler()
 //## Platform Abstractions #########################################################################
 //##################################################################################################
 
-#ifdef TDP_ANDROID
+#ifdef tp_qt_ANDROID
 namespace
 {
 //##################################################################################################

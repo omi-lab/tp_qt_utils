@@ -1,7 +1,7 @@
-#ifndef tdp_qt_utils_TimerCallback_h
-#define tdp_qt_utils_TimerCallback_h
+#ifndef tp_qt_utils_TimerCallback_h
+#define tp_qt_utils_TimerCallback_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
 #include "tp_utils/AbstractTimerCallback.h"
 
@@ -9,11 +9,11 @@
 
 class QTimer;
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
-class TDP_QT_UTILS_SHARED_EXPORT TimerCallback : public tp_utils::AbstractTimerCallback
+class tp_qt_UTILS_SHARED_EXPORT TimerCallback : public tp_utils::AbstractTimerCallback
 {
   QTimer* m_timer;
 public:

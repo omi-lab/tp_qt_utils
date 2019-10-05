@@ -1,11 +1,11 @@
-#ifndef tdp_qt_utils_Progress_h
-#define tdp_qt_utils_Progress_h
+#ifndef tp_qt_utils_Progress_h
+#define tp_qt_utils_Progress_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
 #include <QObject>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
@@ -13,7 +13,7 @@ namespace tdp_qt_utils
 /*!
 
 */
-class TDP_QT_UTILS_SHARED_EXPORT Progress: public QObject
+class tp_qt_UTILS_SHARED_EXPORT Progress: public QObject
 {
   Q_OBJECT
 public:

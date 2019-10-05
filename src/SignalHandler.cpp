@@ -1,11 +1,11 @@
-#include "tdp_qt_utils/SignalHandler.h"
+#include "tp_qt_utils/SignalHandler.h"
 
 #include <QCoreApplication>
 #include <QThread>
 
 #include <csignal>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 namespace

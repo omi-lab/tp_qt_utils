@@ -1,4 +1,4 @@
-#include "tdp_qt_utils/FileUtils.h"
+#include "tp_qt_utils/FileUtils.h"
 
 #include "tp_utils/DebugUtils.h"
 
@@ -13,7 +13,7 @@
 #endif
 
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 //##################################################################################################
 QString readFile(const QString& fileName)
@@ -169,7 +169,7 @@ bool createZip(const QString& fileName, const QByteArray& data, QByteArray& zipp
   }
 
   //-- Create the temporary source file ------------------------------------------------------------
-  if(!tdp_qt_utils::writeBinaryFile(srcPath, data))
+  if(!tp_qt_utils::writeBinaryFile(srcPath, data))
   {
     tpWarning() << "Failed to write file to: " << srcPath.toStdString();
     return false;
@@ -202,7 +202,7 @@ bool createZip(const QString& fileName, const QByteArray& data, QByteArray& zipp
 
 
   //-- Read the data from the zip file -------------------------------------------------------------
-  zippedData = tdp_qt_utils::readBinaryFile(dstPath);
+  zippedData = tp_qt_utils::readBinaryFile(dstPath);
 
   return true;
 }

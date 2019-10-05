@@ -1,8 +1,8 @@
-#ifndef tdp_qt_utils_Serialization_h
-#define tdp_qt_utils_Serialization_h
+#ifndef tp_qt_utils_Serialization_h
+#define tp_qt_utils_Serialization_h
 
-#include "tdp_qt_utils/Globals.h"
-#include "tdp_qt_utils/SerialMessage.h"
+#include "tp_qt_utils/Globals.h"
+#include "tp_qt_utils/SerialMessage.h"
 
 #include "tp_utils/StringID.h"
 #include "tp_utils/StringIDManager.h"
@@ -19,10 +19,10 @@
 #include <vector>
 #include <stdint.h>
 
-namespace tdp_qt_utils_private
+namespace tp_qt_utils_private
 {
 ////##################################################################################################
-//class TDP_QT_UTILS_SHARED_EXPORT DataStream_lt: public QDataStream
+//class tp_qt_UTILS_SHARED_EXPORT DataStream_lt: public QDataStream
 //{
 //public:
 //  DataStream_lt(QByteArray* byteArray, QIODevice::OpenMode flags, tp_utils::StringIDManager* manager);
@@ -70,12 +70,12 @@ Q_DECLARE_METATYPE(FloatVectorList)
 Q_DECLARE_METATYPE(UInt8VectorList)
 
 ////##################################################################################################
-//QDataStream TDP_QT_UTILS_SHARED_EXPORT & operator<<(QDataStream& dataStream_, const tp_utils::StringID& stringID);
+//QDataStream tp_qt_UTILS_SHARED_EXPORT & operator<<(QDataStream& dataStream_, const tp_utils::StringID& stringID);
 //
 ////##################################################################################################
-//QDataStream TDP_QT_UTILS_SHARED_EXPORT & operator>>(QDataStream& dataStream_, tp_utils::StringID& stringID);
+//QDataStream tp_qt_UTILS_SHARED_EXPORT & operator>>(QDataStream& dataStream_, tp_utils::StringID& stringID);
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 ////! A guide to serializing data into byte arrays.
 ///*!
@@ -93,7 +93,7 @@ void registerType(const char * typeName)
 }
 
 //##################################################################################################
-void TDP_QT_UTILS_SHARED_EXPORT registerMetaTypes();
+void tp_qt_UTILS_SHARED_EXPORT registerMetaTypes();
 
 ////##################################################################################################
 //template<class T>
@@ -102,7 +102,7 @@ void TDP_QT_UTILS_SHARED_EXPORT registerMetaTypes();
 //  QByteArray byteArray;
 //
 //  {
-//    tdp_qt_utils_private::DataStream_lt dataStream(&byteArray, QIODevice::WriteOnly, manager);
+//    tp_qt_utils_private::DataStream_lt dataStream(&byteArray, QIODevice::WriteOnly, manager);
 //    dataStream << data;
 //  }
 //
@@ -125,7 +125,7 @@ void TDP_QT_UTILS_SHARED_EXPORT registerMetaTypes();
 //template<class T>
 //void deserialize(tp_utils::StringIDManager* manager, const QByteArray& byteArray, T& data)
 //{
-//  tdp_qt_utils_private::DataStream_lt dataStream(const_cast<QByteArray*>(&byteArray), QIODevice::ReadOnly, manager);
+//  tp_qt_utils_private::DataStream_lt dataStream(const_cast<QByteArray*>(&byteArray), QIODevice::ReadOnly, manager);
 //  dataStream >> data;
 //}
 
@@ -172,7 +172,7 @@ void TDP_QT_UTILS_SHARED_EXPORT registerMetaTypes();
 //
 //  std::string stringIDsData = map.value("StringID's").toByteArray().toStdString();
 //  tp_utils::StringIDManager stringIDManager(stringIDsData);
-//  tdp_qt_utils::deserialize(&stringIDManager, map.value("Data").toByteArray(), data);
+//  tp_qt_utils::deserialize(&stringIDManager, map.value("Data").toByteArray(), data);
 //}
 
 //##################################################################################################

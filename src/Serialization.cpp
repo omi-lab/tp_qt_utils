@@ -1,8 +1,8 @@
-#include "tdp_qt_utils/Serialization.h"
+#include "tp_qt_utils/Serialization.h"
 
 #include "tp_utils/DebugUtils.h"
 
-namespace tdp_qt_utils_private
+namespace tp_qt_utils_private
 {
 ////##################################################################################################
 //DataStream_lt::DataStream_lt(QByteArray* byteArray, QIODevice::OpenMode flags, tp_utils::StringIDManager* manager):
@@ -65,7 +65,7 @@ namespace tdp_qt_utils_private
 ////##################################################################################################
 //QDataStream& operator<<(QDataStream& dataStream_, const tp_utils::StringID& stringID)
 //{
-//  tdp_qt_utils_private::DataStream_lt* dataStream = tdp_qt_utils_private::DataStream_lt::cast(&dataStream_);
+//  tp_qt_utils_private::DataStream_lt* dataStream = tp_qt_utils_private::DataStream_lt::cast(&dataStream_);
 //  Q_ASSERT(dataStream);
 //
 //  dataStream_ << int64_t(stringID.key(dataStream->m_manager));
@@ -78,7 +78,7 @@ namespace tdp_qt_utils_private
 //{
 //  int64_t id;
 //
-//  tdp_qt_utils_private::DataStream_lt* dataStream = tdp_qt_utils_private::DataStream_lt::cast(&dataStream_);
+//  tp_qt_utils_private::DataStream_lt* dataStream = tp_qt_utils_private::DataStream_lt::cast(&dataStream_);
 //  Q_ASSERT(dataStream);
 //
 //  dataStream_ >> id;
@@ -88,7 +88,7 @@ namespace tdp_qt_utils_private
 //  return dataStream_;
 //}
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

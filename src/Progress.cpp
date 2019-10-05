@@ -1,9 +1,9 @@
-#include "tdp_qt_utils/Progress.h"
+#include "tp_qt_utils/Progress.h"
 
 #include "tp_utils/MutexUtils.h"
 
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

@@ -1,4 +1,4 @@
-#include "tdp_qt_utils/EventLatency.h"
+#include "tp_qt_utils/EventLatency.h"
 
 #include "tp_utils/MutexUtils.h"
 #include "tp_utils/TimeUtils.h"
@@ -6,7 +6,7 @@
 #include <QCoreApplication>
 #include <QEvent>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 namespace

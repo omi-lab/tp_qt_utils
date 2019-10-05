@@ -1,8 +1,8 @@
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
-TDP_DEFINE_ID(     dictionarySID,       "Dictionary");
+tp_qt_DEFINE_ID(     dictionarySID,       "Dictionary");
 
 //##################################################################################################
 QStringList convertStringList(const std::vector<std::string>& src)

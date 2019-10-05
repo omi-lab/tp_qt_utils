@@ -1,11 +1,11 @@
-#ifndef tdp_qt_utils_ValidationUtils_h
-#define tdp_qt_utils_ValidationUtils_h
+#ifndef tp_qt_utils_ValidationUtils_h
+#define tp_qt_utils_ValidationUtils_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
 #include <QString>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
@@ -17,7 +17,7 @@ attempt to check if the address actually exists.
 \param text - The text to validate.
 \returns - True if the text is in the correct format to be an email address.
 */
-bool TDP_QT_UTILS_SHARED_EXPORT validateEmail(const QString& text);
+bool tp_qt_UTILS_SHARED_EXPORT validateEmail(const QString& text);
 
 
 //##################################################################################################
@@ -28,7 +28,7 @@ This method returns true if the text is made up of only letters.
 \param text - The text to validate.
 \returns - True if the text contains only letters.
 */
-bool TDP_QT_UTILS_SHARED_EXPORT validateAlpha(const QString& text);
+bool tp_qt_UTILS_SHARED_EXPORT validateAlpha(const QString& text);
 
 
 //##################################################################################################
@@ -39,7 +39,7 @@ This method returns true if the text is made up of only alpha numeric characters
 \param text - The text to validate.
 \returns - True if the text is alpha numeric.
 */
-bool TDP_QT_UTILS_SHARED_EXPORT validateAlphaNumeric(const QString& text);
+bool tp_qt_UTILS_SHARED_EXPORT validateAlphaNumeric(const QString& text);
 }
 
 #endif

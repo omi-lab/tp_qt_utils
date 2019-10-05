@@ -1,11 +1,11 @@
-#ifndef tdp_qt_utils_DebugUtils_h
-#define tdp_qt_utils_DebugUtils_h
+#ifndef tp_qt_utils_DebugUtils_h
+#define tp_qt_utils_DebugUtils_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
 #include "tp_utils/DebugUtils.h"
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
@@ -32,7 +32,7 @@ on the terminal. If set, it takes precedence over this function.
 
 \param format - OR of QDebugFormat values
 */
-void TDP_QT_UTILS_SHARED_EXPORT setQDebugFormat(QDebugFormat format);
+void tp_qt_UTILS_SHARED_EXPORT setQDebugFormat(QDebugFormat format);
 
 //##################################################################################################
 //! Writes an entry to a log file
@@ -40,7 +40,7 @@ void TDP_QT_UTILS_SHARED_EXPORT setQDebugFormat(QDebugFormat format);
 This will write an entry to a log file, it will truncate the log file when it gets larger than the
 maxLength set by qDebugToLog().
 */
-bool TDP_QT_UTILS_SHARED_EXPORT writeLogEntry(const QString& logPath, QString txt);
+bool tp_qt_UTILS_SHARED_EXPORT writeLogEntry(const QString& logPath, QString txt);
 
 //##################################################################################################
 //! Write qDebug to a log file
@@ -50,10 +50,10 @@ This installs a qDebug handler that redirects all qDebug, qWarning, etc to a log
 \param logPath - The path of the file to write to
 \param maxLength - The maximum length of the log file, once this is reached the file is truncated.
 */
-void TDP_QT_UTILS_SHARED_EXPORT qDebugToLog(const QString& logPath, int64_t maxLength=500000);
+void tp_qt_UTILS_SHARED_EXPORT qDebugToLog(const QString& logPath, int64_t maxLength=500000);
 
 //##################################################################################################
-void TDP_QT_UTILS_SHARED_EXPORT setPrefix(const QString& prefix);
+void tp_qt_UTILS_SHARED_EXPORT setPrefix(const QString& prefix);
 
 //##################################################################################################
 QString formatDebugString(QtMsgType type, const QMessageLogContext& context, const QString& msg);

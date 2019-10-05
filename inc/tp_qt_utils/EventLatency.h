@@ -1,17 +1,17 @@
-#ifndef tdp_qt_utils_EventLatency_h
-#define tdp_qt_utils_EventLatency_h
+#ifndef tp_qt_utils_EventLatency_h
+#define tp_qt_utils_EventLatency_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
 #include <QObject>
 #include <QEvent>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
 //! Times the processing latency of the event queue.
-class TDP_QT_UTILS_SHARED_EXPORT EventLatency: public QObject
+class tp_qt_UTILS_SHARED_EXPORT EventLatency: public QObject
 {
 public:
   //################################################################################################

@@ -1,4 +1,4 @@
-#include "tdp_qt_utils/ExplicitStringIDManager.h"
+#include "tp_qt_utils/ExplicitStringIDManager.h"
 
 #include "tp_utils/StringID.h"
 #include "tp_utils/MutexUtils.h"
@@ -10,7 +10,7 @@
 #include <QtEndian>
 #include <QDebug>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 //##################################################################################################
 struct ExplicitStringIDManager::Private

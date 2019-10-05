@@ -1,16 +1,16 @@
-#ifndef tdp_qt_utils_SerialMessage_h
-#define tdp_qt_utils_SerialMessage_h
+#ifndef tp_qt_utils_SerialMessage_h
+#define tp_qt_utils_SerialMessage_h
 
-#include "tdp_qt_utils/Globals.h"
+#include "tp_qt_utils/Globals.h"
 
 #include <QByteArray>
 #include <QDebug>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################
-struct TDP_QT_UTILS_SHARED_EXPORT SerialMessage
+struct tp_qt_UTILS_SHARED_EXPORT SerialMessage
 {
   char command;
   QByteArray data;
@@ -24,7 +24,7 @@ struct TDP_QT_UTILS_SHARED_EXPORT SerialMessage
 };
 
 //##################################################################################################
-QDebug TDP_QT_UTILS_SHARED_EXPORT operator<<(QDebug d, const SerialMessage& serialMessage);
+QDebug tp_qt_UTILS_SHARED_EXPORT operator<<(QDebug d, const SerialMessage& serialMessage);
 
 }
 

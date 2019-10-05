@@ -1,8 +1,8 @@
-#include "tdp_qt_utils/FormatXML.h"
+#include "tp_qt_utils/FormatXML.h"
 
 #include <QByteArray>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

@@ -1,8 +1,8 @@
-#include "tdp_qt_utils/CrossThreadCallback.h"
+#include "tp_qt_utils/CrossThreadCallback.h"
 
 #include <QCoreApplication>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 //##################################################################################################
 struct CrossThreadCallback::Private: public QObject

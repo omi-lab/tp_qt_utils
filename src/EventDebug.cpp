@@ -1,8 +1,8 @@
-#include <tdp_qt_utils/EventDebug.h>
+#include <tp_qt_utils/EventDebug.h>
 
 #include "tp_utils/DebugUtils.h"
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

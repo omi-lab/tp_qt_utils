@@ -1,8 +1,8 @@
-#include "tdp_qt_utils/TimerCallback.h"
+#include "tp_qt_utils/TimerCallback.h"
 
 #include <QTimer>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

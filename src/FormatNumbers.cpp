@@ -1,10 +1,10 @@
-#include "tdp_qt_utils/FormatNumbers.h"
+#include "tp_qt_utils/FormatNumbers.h"
 
 #include <QByteArray>
 #include <QString>
 #include <QList>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 
 //##################################################################################################

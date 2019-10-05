@@ -1,10 +1,10 @@
-#include "tdp_qt_utils/ProcessStatusManager.h"
+#include "tp_qt_utils/ProcessStatusManager.h"
 
 #include "tp_utils/MutexUtils.h"
 
 #include <QMap>
 
-namespace tdp_qt_utils
+namespace tp_qt_utils
 {
 namespace
 {
@@ -70,7 +70,7 @@ QString serializeProcessStatusMessages(const QList<ProcessStatusMessage>& status
 
   Q_FOREACH(const ProcessStatusMessage& message, statusMessages)
     serialized.append(pattern.arg(QString::fromStdString(message.messageName.keyString()),
-                                  tdp_qt_utils::warningLevelToString(message.warningLevel),
+                                  tp_qt_utils::warningLevelToString(message.warningLevel),
                                   QString(message.message.toLatin1().toBase64())));
 
   return serialized;
@@ -104,7 +104,7 @@ QString serializeProcessStatusMessagesHTML(const QList<ProcessStatusMessage>& st
 
     serialized.append(pattern.arg(
                         QString::fromStdString(message.messageName.keyString()),
-                        tdp_qt_utils::warningLevelToString(message.warningLevel),
+                        tp_qt_utils::warningLevelToString(message.warningLevel),
                         html));
   }
 
