@@ -2,7 +2,7 @@
 
 namespace tp_qt_utils
 {
-tp_qt_DEFINE_ID(     dictionarySID,       "Dictionary");
+TP_DEFINE_ID(     dictionarySID,       "Dictionary");
 
 //##################################################################################################
 QStringList convertStringList(const std::vector<std::string>& src)

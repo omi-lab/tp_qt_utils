@@ -13,7 +13,7 @@ namespace tp_qt_utils
 {
 
 //##################################################################################################
-class tp_qt_UTILS_SHARED_EXPORT TimerCallback : public tp_utils::AbstractTimerCallback
+class TP_QT_UTILS_SHARED_EXPORT TimerCallback : public tp_utils::AbstractTimerCallback
 {
   QTimer* m_timer;
 public:

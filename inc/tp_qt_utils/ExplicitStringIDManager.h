@@ -10,7 +10,7 @@
 namespace tp_qt_utils
 {
 
-class tp_qt_UTILS_SHARED_EXPORT ExplicitStringIDManager: public tp_utils::StringIDManager
+class TP_QT_UTILS_SHARED_EXPORT ExplicitStringIDManager: public tp_utils::StringIDManager
 {
 public:
   //################################################################################################

@@ -10,7 +10,7 @@ namespace tp_qt_utils
 {
 
 //##################################################################################################
-struct tp_qt_UTILS_SHARED_EXPORT SerialMessage
+struct TP_QT_UTILS_SHARED_EXPORT SerialMessage
 {
   char command;
   QByteArray data;
@@ -24,7 +24,7 @@ struct tp_qt_UTILS_SHARED_EXPORT SerialMessage
 };
 
 //##################################################################################################
-QDebug tp_qt_UTILS_SHARED_EXPORT operator<<(QDebug d, const SerialMessage& serialMessage);
+QDebug TP_QT_UTILS_SHARED_EXPORT operator<<(QDebug d, const SerialMessage& serialMessage);
 
 }
 

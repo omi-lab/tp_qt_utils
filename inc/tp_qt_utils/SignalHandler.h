@@ -8,7 +8,7 @@ namespace tp_qt_utils
 
 //##################################################################################################
 //! Exit Qt application gracefully
-void tp_qt_UTILS_SHARED_EXPORT installSignalHandler();
+void TP_QT_UTILS_SHARED_EXPORT installSignalHandler();
 
 }
 

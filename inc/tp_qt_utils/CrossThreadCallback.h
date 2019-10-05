@@ -21,7 +21,7 @@ An event will be sent to the receiving thread that causes the callback to be cal
 
 \warning This requires that the receiving thread has an event loop.
 */
-class tp_qt_UTILS_SHARED_EXPORT CrossThreadCallback : public tp_utils::AbstractCrossThreadCallback
+class TP_QT_UTILS_SHARED_EXPORT CrossThreadCallback : public tp_utils::AbstractCrossThreadCallback
 {
 public:
   //################################################################################################

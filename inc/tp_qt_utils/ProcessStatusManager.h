@@ -21,13 +21,13 @@ enum WarningLevel
 };
 
 //##################################################################################################
-QString tp_qt_UTILS_SHARED_EXPORT warningLevelToString(WarningLevel warningLevel);
+QString TP_QT_UTILS_SHARED_EXPORT warningLevelToString(WarningLevel warningLevel);
 
 //##################################################################################################
-WarningLevel tp_qt_UTILS_SHARED_EXPORT warningLevelFromString(const QString& warningString);
+WarningLevel TP_QT_UTILS_SHARED_EXPORT warningLevelFromString(const QString& warningString);
 
 //##################################################################################################
-struct tp_qt_UTILS_SHARED_EXPORT ProcessStatusMessage
+struct TP_QT_UTILS_SHARED_EXPORT ProcessStatusMessage
 {
   tp_utils::StringID messageName;
   WarningLevel warningLevel;
@@ -53,13 +53,13 @@ struct tp_qt_UTILS_SHARED_EXPORT ProcessStatusMessage
 };
 
 //##################################################################################################
-QString tp_qt_UTILS_SHARED_EXPORT serializeProcessStatusMessages(const QList<ProcessStatusMessage>& statusMessages);
+QString TP_QT_UTILS_SHARED_EXPORT serializeProcessStatusMessages(const QList<ProcessStatusMessage>& statusMessages);
 
 //##################################################################################################
-QString tp_qt_UTILS_SHARED_EXPORT serializeProcessStatusMessagesHTML(const QList<ProcessStatusMessage>& statusMessages, const QSet<tp_utils::StringID>& remove=QSet<tp_utils::StringID>());
+QString TP_QT_UTILS_SHARED_EXPORT serializeProcessStatusMessagesHTML(const QList<ProcessStatusMessage>& statusMessages, const QSet<tp_utils::StringID>& remove=QSet<tp_utils::StringID>());
 
 //##################################################################################################
-QList<ProcessStatusMessage> tp_qt_UTILS_SHARED_EXPORT deserializeProcessStatusMessages(const QString& statusString);
+QList<ProcessStatusMessage> TP_QT_UTILS_SHARED_EXPORT deserializeProcessStatusMessages(const QString& statusString);
 
 //##################################################################################################
 //! A class for recording process status messages.
@@ -75,7 +75,7 @@ colour for the server in the Server Overview web page, as follows:
  - WarningLevelWarning: yellow.
  - Other warning levels: green.
 */
-class tp_qt_UTILS_SHARED_EXPORT ProcessStatusManager
+class TP_QT_UTILS_SHARED_EXPORT ProcessStatusManager
 {
   ProcessStatusManager()=default;
   virtual ~ProcessStatusManager()=default;

@@ -16,7 +16,7 @@ Reads all of a file into a string.
 \param fileName - The name of the file to load.
 \returns - The contents of the file, or an empty string.
 */
-QString tp_qt_UTILS_SHARED_EXPORT readFile(const QString& fileName);
+QString TP_QT_UTILS_SHARED_EXPORT readFile(const QString& fileName);
 
 //##################################################################################################
 //! Reads a file to a byte array
@@ -26,7 +26,7 @@ Reads all of a file into a byte array.
 \param fileName - The name of the file to load.
 \returns - The contents of the file, or an empty byte array.
 */
-QByteArray tp_qt_UTILS_SHARED_EXPORT readBinaryFile(const QString& fileName);
+QByteArray TP_QT_UTILS_SHARED_EXPORT readBinaryFile(const QString& fileName);
 
 //##################################################################################################
 //! Writes a string to a file
@@ -35,7 +35,7 @@ QByteArray tp_qt_UTILS_SHARED_EXPORT readBinaryFile(const QString& fileName);
 \param textOutput
 \return True if the file was written, else false.
  */
-bool tp_qt_UTILS_SHARED_EXPORT writeTextFile(const QString& fileName, const QString& textOutput);
+bool TP_QT_UTILS_SHARED_EXPORT writeTextFile(const QString& fileName, const QString& textOutput);
 
 //##################################################################################################
 //! Write binary data to a file
@@ -44,7 +44,7 @@ bool tp_qt_UTILS_SHARED_EXPORT writeTextFile(const QString& fileName, const QStr
 \param data - The binary data to write out
 \return True if the file was written, else false.
 */
-bool tp_qt_UTILS_SHARED_EXPORT writeBinaryFile(const QString& fileName, const QByteArray& data);
+bool TP_QT_UTILS_SHARED_EXPORT writeBinaryFile(const QString& fileName, const QByteArray& data);
 
 //##################################################################################################
 //! Reads a config file into a map
@@ -56,7 +56,7 @@ replace earlier lines.
 \param fileName - The file to read config from
 \return
 */
-QMap<QString, QString> tp_qt_UTILS_SHARED_EXPORT parseConfigFile(const QString& fileName);
+QMap<QString, QString> TP_QT_UTILS_SHARED_EXPORT parseConfigFile(const QString& fileName);
 
 //##################################################################################################
 //! Reads multiple config file into a map
@@ -68,7 +68,7 @@ replace earlier lines.
 \param fileNames - The files to read config from later files
 \return
 */
-QMap<QString, QString> tp_qt_UTILS_SHARED_EXPORT parseConfigFiles(const QStringList& fileNames);
+QMap<QString, QString> TP_QT_UTILS_SHARED_EXPORT parseConfigFiles(const QStringList& fileNames);
 
 //##################################################################################################
 QMap<QString, QString> parseCommandLine();
@@ -85,7 +85,7 @@ This will zip a single file using the standard .zip file format and return the z
 \param zippedData - The zipped archive data (out)
 \return True if ok
 */
-bool tp_qt_UTILS_SHARED_EXPORT createZip(const QString& fileName, const QByteArray& data, QByteArray& zippedData);
+bool TP_QT_UTILS_SHARED_EXPORT createZip(const QString& fileName, const QByteArray& data, QByteArray& zippedData);
 
 //##################################################################################################
 //! This tries to guess the image type from the image data

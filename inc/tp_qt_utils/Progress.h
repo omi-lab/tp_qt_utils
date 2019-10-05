@@ -13,7 +13,7 @@ namespace tp_qt_utils
 /*!
 
 */
-class tp_qt_UTILS_SHARED_EXPORT Progress: public QObject
+class TP_QT_UTILS_SHARED_EXPORT Progress: public QObject
 {
   Q_OBJECT
 public:

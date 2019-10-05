@@ -32,7 +32,7 @@ on the terminal. If set, it takes precedence over this function.
 
 \param format - OR of QDebugFormat values
 */
-void tp_qt_UTILS_SHARED_EXPORT setQDebugFormat(QDebugFormat format);
+void TP_QT_UTILS_SHARED_EXPORT setQDebugFormat(QDebugFormat format);
 
 //##################################################################################################
 //! Writes an entry to a log file
@@ -40,7 +40,7 @@ void tp_qt_UTILS_SHARED_EXPORT setQDebugFormat(QDebugFormat format);
 This will write an entry to a log file, it will truncate the log file when it gets larger than the
 maxLength set by qDebugToLog().
 */
-bool tp_qt_UTILS_SHARED_EXPORT writeLogEntry(const QString& logPath, QString txt);
+bool TP_QT_UTILS_SHARED_EXPORT writeLogEntry(const QString& logPath, QString txt);
 
 //##################################################################################################
 //! Write qDebug to a log file
@@ -50,10 +50,10 @@ This installs a qDebug handler that redirects all qDebug, qWarning, etc to a log
 \param logPath - The path of the file to write to
 \param maxLength - The maximum length of the log file, once this is reached the file is truncated.
 */
-void tp_qt_UTILS_SHARED_EXPORT qDebugToLog(const QString& logPath, int64_t maxLength=500000);
+void TP_QT_UTILS_SHARED_EXPORT qDebugToLog(const QString& logPath, int64_t maxLength=500000);
 
 //##################################################################################################
-void tp_qt_UTILS_SHARED_EXPORT setPrefix(const QString& prefix);
+void TP_QT_UTILS_SHARED_EXPORT setPrefix(const QString& prefix);
 
 //##################################################################################################
 QString formatDebugString(QtMsgType type, const QMessageLogContext& context, const QString& msg);

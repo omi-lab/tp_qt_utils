@@ -22,7 +22,7 @@
 namespace tp_qt_utils_private
 {
 ////##################################################################################################
-//class tp_qt_UTILS_SHARED_EXPORT DataStream_lt: public QDataStream
+//class TP_QT_UTILS_SHARED_EXPORT DataStream_lt: public QDataStream
 //{
 //public:
 //  DataStream_lt(QByteArray* byteArray, QIODevice::OpenMode flags, tp_utils::StringIDManager* manager);
@@ -70,10 +70,10 @@ Q_DECLARE_METATYPE(FloatVectorList)
 Q_DECLARE_METATYPE(UInt8VectorList)
 
 ////##################################################################################################
-//QDataStream tp_qt_UTILS_SHARED_EXPORT & operator<<(QDataStream& dataStream_, const tp_utils::StringID& stringID);
+//QDataStream TP_QT_UTILS_SHARED_EXPORT & operator<<(QDataStream& dataStream_, const tp_utils::StringID& stringID);
 //
 ////##################################################################################################
-//QDataStream tp_qt_UTILS_SHARED_EXPORT & operator>>(QDataStream& dataStream_, tp_utils::StringID& stringID);
+//QDataStream TP_QT_UTILS_SHARED_EXPORT & operator>>(QDataStream& dataStream_, tp_utils::StringID& stringID);
 
 namespace tp_qt_utils
 {
@@ -93,7 +93,7 @@ void registerType(const char * typeName)
 }
 
 //##################################################################################################
-void tp_qt_UTILS_SHARED_EXPORT registerMetaTypes();
+void TP_QT_UTILS_SHARED_EXPORT registerMetaTypes();
 
 ////##################################################################################################
 //template<class T>

@@ -1,7 +1,7 @@
 TARGET = tp_qt_utils
 TEMPLATE = lib
 
-DEFINES += tp_qt_UTILS_LIBRARY
+DEFINES += TP_QT_UTILS_LIBRARY
 
 SOURCES += src/Globals.cpp
 HEADERS += inc/tp_qt_utils/Globals.h

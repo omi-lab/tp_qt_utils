@@ -14,7 +14,7 @@ namespace tp_qt_utils
 /*!
 
 */
-class tp_qt_UTILS_SHARED_EXPORT EventDebug: public QObject
+class TP_QT_UTILS_SHARED_EXPORT EventDebug: public QObject
 {
 public:
   //################################################################################################

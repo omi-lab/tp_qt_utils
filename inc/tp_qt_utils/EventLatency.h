@@ -11,7 +11,7 @@ namespace tp_qt_utils
 
 //##################################################################################################
 //! Times the processing latency of the event queue.
-class tp_qt_UTILS_SHARED_EXPORT EventLatency: public QObject
+class TP_QT_UTILS_SHARED_EXPORT EventLatency: public QObject
 {
 public:
   //################################################################################################

@@ -19,16 +19,16 @@ the original size, the number of characters that are printed can be limited with
 
 \returns - A printable version of the data surrounded by brackets and prefixed with its length.
 */
-QString tp_qt_UTILS_SHARED_EXPORT binaryDebug(const QByteArray& data, int maxLen = 30);
+QString TP_QT_UTILS_SHARED_EXPORT binaryDebug(const QByteArray& data, int maxLen = 30);
 
 //##################################################################################################
-QString tp_qt_UTILS_SHARED_EXPORT binaryNumericDebug(const QByteArray& data, int maxLen = 30);
+QString TP_QT_UTILS_SHARED_EXPORT binaryNumericDebug(const QByteArray& data, int maxLen = 30);
 
 //##################################################################################################
-QString tp_qt_UTILS_SHARED_EXPORT summaryBinaryDebug(const QByteArray& data);
+QString TP_QT_UTILS_SHARED_EXPORT summaryBinaryDebug(const QByteArray& data);
 
 //##################################################################################################
-QByteArray tp_qt_UTILS_SHARED_EXPORT replaceTokens(const QByteArray& data, const QMap<QByteArray, QByteArray>& tokens, char start='$', char end='$');
+QByteArray TP_QT_UTILS_SHARED_EXPORT replaceTokens(const QByteArray& data, const QMap<QByteArray, QByteArray>& tokens, char start='$', char end='$');
 
 }
 

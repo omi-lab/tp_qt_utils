@@ -12,7 +12,7 @@
 
 #include <iostream>
 
-#ifdef tp_qt_ANDROID
+#ifdef TP_QT_ANDROID
 #include <android/log.h>
 #endif
 
@@ -190,7 +190,7 @@ void removeMessageHandler()
 //## Platform Abstractions #########################################################################
 //##################################################################################################
 
-#ifdef tp_qt_ANDROID
+#ifdef TP_QT_ANDROID
 namespace
 {
 //##################################################################################################
