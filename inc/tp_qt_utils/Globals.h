@@ -17,9 +17,9 @@
 #include <ostream>
 
 //##################################################################################################
-//! Qt classes used throughout the rest of Tdp Toolkit.
+//! Qt classes used throughout the rest of tp Toolkit.
 /*!
-This module provides a set of general purpose classes that form the core of Tdp Toolkit.
+This module provides a set of general purpose classes that form the core of tp Toolkit.
 */
 namespace tp_qt_utils
 {
