@@ -15,6 +15,10 @@ namespace tp_qt_utils
 //##################################################################################################
 struct ExplicitStringIDManager::Private
 {
+  TP_REF_COUNT_OBJECTS("tp_qt_utils::ExplicitStringIDManager::Private");
+  TP_NONCOPYABLE(Private);
+  Private() = default;
+
   TPMutex mutex{TPM};
   QMap<std::string, int64_t> keys;
   QHash<int64_t, std::string> stringKeys;

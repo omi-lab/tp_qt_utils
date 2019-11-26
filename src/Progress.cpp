@@ -9,6 +9,10 @@ namespace tp_qt_utils
 //##################################################################################################
 struct Progress::Private
 {
+  TP_REF_COUNT_OBJECTS("tp_qt_utils::Progress::Private");
+  TP_NONCOPYABLE(Private);
+  Private() = default;
+
   TPMutex mutex{TPM};
   QString description;
   float progress{0.0f};

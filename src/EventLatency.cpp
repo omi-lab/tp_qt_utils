@@ -29,6 +29,9 @@ struct CustomEvent_lt : public QEvent
 //##################################################################################################
 struct EventLatency::Private
 {
+  TP_REF_COUNT_OBJECTS("tp_qt_utils::EventLatency::Private");
+  TP_NONCOPYABLE(Private);
+
   std::string name;
   static TPMutex mutex;
   static std::unordered_map<std::string, int> results;

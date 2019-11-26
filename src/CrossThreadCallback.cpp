@@ -7,6 +7,9 @@ namespace tp_qt_utils
 //##################################################################################################
 struct CrossThreadCallback::Private: public QObject
 {
+  TP_REF_COUNT_OBJECTS("tp_qt_utils::CrossThreadCallback::Private");
+  TP_NONCOPYABLE(Private);
+
   CrossThreadCallback* q;
   int delay;
   int timerID{0};
