@@ -94,6 +94,15 @@ std::string EventLatency::takeResults()
 }
 
 //##################################################################################################
+std::map<std::string, size_t> EventLatency::keyValueResults()
+{
+  std::map<std::string, size_t> counts;
+  for(const auto& result : results())
+    counts[result.first] = size_t(result.second);
+  return counts;
+}
+
+//##################################################################################################
 void EventLatency::timerEvent(QTimerEvent*)
 {
   QCoreApplication::postEvent(this, new CustomEvent_lt());
