@@ -56,10 +56,4 @@ inline std::ostream& operator<<(std::ostream& os, const QList<V>& v){return deta
 inline std::ostream& operator<<(std::ostream& os, const QString& v){return detail::print(os, v);}
 inline std::ostream& operator<<(std::ostream& os, const QByteArray& v){return detail::print(os, v);}
 
-#ifdef TP_ADD_WIDGET_NAME_TOOL_TIPS
-#  define TP_QT_ADD_TOOL_TIP() setToolTip(metaObject()->className())
-#else
-#  define TP_QT_ADD_TOOL_TIP()
-#endif
-
 #endif

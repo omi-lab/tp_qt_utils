@@ -12,4 +12,5 @@ QStringList convertStringList(const std::vector<std::string>& src)
     dst.push_back(QString::fromStdString(i));
   return dst;
 }
+
 }
