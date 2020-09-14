@@ -21,15 +21,15 @@ namespace
 
 //##################################################################################################
 int64_t maxLength = 500000;
-QString qDebugLogPath;
-QString prefix;
+QString& qDebugLogPath(){static QString s; return s;}
+QString& prefix(){static QString s; return s;}
 
 QtMessageHandler originalMessageHandler = nullptr;
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
   QString txt = tp_qt_utils::formatDebugString(type, context, msg);
 
-  if(!qDebugLogPath.isEmpty() && tp_qt_utils::writeLogEntry(qDebugLogPath, txt))
+  if(!qDebugLogPath().isEmpty() && tp_qt_utils::writeLogEntry(qDebugLogPath(), txt))
   {
     if(type==QtFatalMsg)
       abort();
@@ -90,7 +90,7 @@ bool writeLogEntry(const QString& logPath, QString txt)
 //##################################################################################################
 void qDebugToLog(const QString& logPath, int64_t maxLength_)
 {
-  qDebugLogPath = logPath;
+  qDebugLogPath() = logPath;
   maxLength = maxLength_;
 
   qSetMessagePattern("%{time hh:mm:ss.zzz} %{if-debug}Debug%{endif}%{if-warning}Warning%{endif}%{if-critical}Critical%{endif}%{if-fatal}Fatal%{endif} %{message}");
@@ -108,14 +108,14 @@ void qDebugToLog(const QString& logPath, int64_t maxLength_)
 //##################################################################################################
 void setPrefix(const QString& prefix)
 {
-  ::prefix = prefix;
+  ::prefix() = prefix;
 }
 
 //##################################################################################################
 QString formatDebugString(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
   TP_UNUSED(context);
-  QString txt = prefix;
+  QString txt = prefix();
   switch (type)
   {
   case QtDebugMsg:
