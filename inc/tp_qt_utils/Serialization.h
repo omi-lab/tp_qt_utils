@@ -206,7 +206,7 @@ public:
   void addData(const QByteArray& input);
 
   //################################################################################################
-  bool hasMessage()const;
+  bool hasMessage() const;
 
   //################################################################################################
   QList<SerialMessage> takeMessages();

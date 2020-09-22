@@ -66,7 +66,7 @@ void Progress::setDescription(const QString& description)
 }
 
 //##################################################################################################
-QString Progress::description()const
+QString Progress::description() const
 {
   d->mutex.lock(TPM);
   QString description = d->description;
@@ -76,7 +76,7 @@ QString Progress::description()const
 }
 
 //##################################################################################################
-float Progress::progress()const
+float Progress::progress() const
 {
   d->mutex.lock(TPM);
   float progress = d->progress;
@@ -94,7 +94,7 @@ void Progress::stop(bool shouldStop)
 }
 
 //##################################################################################################
-bool Progress::shouldStop()const
+bool Progress::shouldStop() const
 {
   d->mutex.lock(TPM);
   bool shouldStop = d->shouldStop;

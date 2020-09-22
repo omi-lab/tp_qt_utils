@@ -39,7 +39,7 @@ public:
 
   //################################################################################################
   //! Returns the current progress
-  float progress()const;
+  float progress() const;
 
   //################################################################################################
   //! Sets the description of the task that is being performed
@@ -53,11 +53,11 @@ public:
 
   //################################################################################################
   //! Returns the descripton of the current stage of the task.
-  QString description()const;
+  QString description() const;
 
   //################################################################################################
   //! Returs true if this task should stop
-  bool shouldStop()const;
+  bool shouldStop() const;
 
   //################################################################################################
   //! Use this to stop the task

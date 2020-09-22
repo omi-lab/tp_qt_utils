@@ -281,7 +281,7 @@ void PartialPacket::addData(const QByteArray& input)
 }
 
 //##################################################################################################
-bool PartialPacket::hasMessage()const
+bool PartialPacket::hasMessage() const
 {
   return !m_messages.isEmpty();
 }
