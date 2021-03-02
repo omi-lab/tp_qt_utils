@@ -52,7 +52,11 @@ inline std::ostream& operator<<(std::ostream& os, const QMap<K,V>& v){return det
 template <typename V>
 inline std::ostream& operator<<(std::ostream& os, const QVector<V>& v){return detail::print(os, v);}
 template <typename V>
+
+#if QT_VERSION < 0x060000
 inline std::ostream& operator<<(std::ostream& os, const QList<V>& v){return detail::print(os, v);}
+#endif
+
 inline std::ostream& operator<<(std::ostream& os, const QString& v){return detail::print(os, v);}
 inline std::ostream& operator<<(std::ostream& os, const QByteArray& v){return detail::print(os, v);}
 

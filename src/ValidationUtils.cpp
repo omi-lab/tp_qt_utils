@@ -1,7 +1,7 @@
 #include "tp_qt_utils/ValidationUtils.h"
 
 #include <QSet>
-#include <QRegExp>
+#include <QRegularExpression>
 
 namespace tp_qt_utils
 {
@@ -9,12 +9,12 @@ namespace tp_qt_utils
 //##################################################################################################
 bool validateEmail(const QString& text)
 {
-  static const QRegExp regExp(R"(\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b)");
+  static const QRegularExpression regExp(R"(\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b)");
 
   if(text.isEmpty())
     return false;
 
-  return regExp.exactMatch(text.toUpper());
+  return regExp.match(text.toUpper()).hasMatch();
 }
 
 //##################################################################################################

@@ -89,7 +89,9 @@ template<typename T>
 void registerType(const char * typeName)
 {
   qRegisterMetaType<T>(typeName);
+#if QT_VERSION < 0x060000
   qRegisterMetaTypeStreamOperators<T>(typeName);
+#endif
 }
 
 //##################################################################################################

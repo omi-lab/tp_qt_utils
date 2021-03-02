@@ -19,10 +19,10 @@ the original size, the number of characters that are printed can be limited with
 
 \returns - A printable version of the data surrounded by brackets and prefixed with its length.
 */
-QString TP_QT_UTILS_SHARED_EXPORT binaryDebug(const QByteArray& data, int maxLen = 30);
+QString TP_QT_UTILS_SHARED_EXPORT binaryDebug(const QByteArray& data, size_t maxLen = 30);
 
 //##################################################################################################
-QString TP_QT_UTILS_SHARED_EXPORT binaryNumericDebug(const QByteArray& data, int maxLen = 30);
+QString TP_QT_UTILS_SHARED_EXPORT binaryNumericDebug(const QByteArray& data, size_t maxLen = 30);
 
 //##################################################################################################
 QString TP_QT_UTILS_SHARED_EXPORT summaryBinaryDebug(const QByteArray& data);

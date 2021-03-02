@@ -163,7 +163,9 @@ std::string EventDebug::eventTypeString(QEvent::Type type)
   case QEvent::UngrabMouse:                              return "UngrabMouse";
   case QEvent::GrabKeyboard:                             return "GrabKeyboard";
   case QEvent::UngrabKeyboard:                           return "UngrabKeyboard";
+#if QT_VERSION < 0x060000
   case QEvent::MacGLClearDrawable:                       return "MacGLClearDrawable";
+#endif
   case QEvent::StateMachineSignal:                       return "StateMachineSignal";
   case QEvent::StateMachineWrapped:                      return "StateMachineWrapped";
   case QEvent::TouchBegin:                               return "TouchBegin";

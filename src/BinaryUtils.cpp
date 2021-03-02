@@ -8,11 +8,11 @@ namespace tp_qt_utils
 {
 
 //##################################################################################################
-QString binaryDebug(const QByteArray& data, int maxLen)
+QString binaryDebug(const QByteArray& data, size_t maxLen)
 {
   const char* c = data.constData();
 
-  int iMax = tpMin(data.size(), maxLen);
+  int iMax = tpMin(size_t(data.size()), maxLen);
 
   QString result;
   result.reserve(iMax+32);
@@ -34,11 +34,11 @@ QString binaryDebug(const QByteArray& data, int maxLen)
 }
 
 //##################################################################################################
-QString binaryNumericDebug(const QByteArray& data, int maxLen)
+QString binaryNumericDebug(const QByteArray& data, size_t maxLen)
 {
   const auto* c = reinterpret_cast<const uint8_t*>(data.constData());
 
-  int iMax = tpMin(data.size(), maxLen);
+  int iMax = tpMin(size_t(data.size()), maxLen);
 
   QString result;
   result.reserve(iMax+32);
