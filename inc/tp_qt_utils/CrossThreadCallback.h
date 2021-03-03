@@ -29,7 +29,10 @@ public:
   \param callback The callback that will be called in this thread.
   \param delay If this is zero or positive a timer will be used to collate calls.
   */
-  CrossThreadCallback(const std::function<void()>& callback, int delay=-1);
+  CrossThreadCallback(const std::function<void()>& callback, int delay);
+
+  //################################################################################################
+  CrossThreadCallback(const std::function<void()>& callback);
 
   //################################################################################################
   ~CrossThreadCallback() override;

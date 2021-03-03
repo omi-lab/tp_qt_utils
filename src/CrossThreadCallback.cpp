@@ -64,6 +64,14 @@ CrossThreadCallback::CrossThreadCallback(const std::function<void()>& callback, 
 }
 
 //##################################################################################################
+CrossThreadCallback::CrossThreadCallback(const std::function<void()>& callback):
+  tp_utils::AbstractCrossThreadCallback(callback),
+  d(new Private(this, -1))
+{
+
+}
+
+//##################################################################################################
 CrossThreadCallback::~CrossThreadCallback()
 {
   delete d;
