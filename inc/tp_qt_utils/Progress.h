@@ -63,7 +63,7 @@ public:
   //! Use this to stop the task
   void stop(bool shouldStop);
 
-signals:
+Q_SIGNALS:
   //################################################################################################
   void changed();
 
