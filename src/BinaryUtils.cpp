@@ -12,7 +12,7 @@ QString binaryDebug(const QByteArray& data, size_t maxLen)
 {
   const char* c = data.constData();
 
-  int iMax = tpMin(size_t(data.size()), maxLen);
+  int iMax = int(tpMin(size_t(data.size()), maxLen));
 
   QString result;
   result.reserve(iMax+32);
@@ -38,7 +38,7 @@ QString binaryNumericDebug(const QByteArray& data, size_t maxLen)
 {
   const auto* c = reinterpret_cast<const uint8_t*>(data.constData());
 
-  int iMax = tpMin(size_t(data.size()), maxLen);
+  int iMax = int(tpMin(size_t(data.size()), maxLen));
 
   QString result;
   result.reserve(iMax+32);
