@@ -75,13 +75,13 @@ bool writeLogEntry(const QString& logPath, QString txt)
     outFile.resize(0);
     {
       QTextStream ts(&outFile);
-      ts << txt << Qt::endl;
+      ts << txt << '\n';
     }
   }
   else
   {
     QTextStream ts(&outFile);
-    ts << txt << Qt::endl;
+    ts << txt << '\n';
   }
 
   return true;

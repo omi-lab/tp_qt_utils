@@ -289,7 +289,7 @@ bool PartialPacket::hasMessage() const
 //##################################################################################################
 QList<SerialMessage> PartialPacket::takeMessages()
 {
-  QList<SerialMessage> messages = m_messages;
+  QVector<SerialMessage> messages = m_messages;
   m_messages.clear();
   return messages;
 }

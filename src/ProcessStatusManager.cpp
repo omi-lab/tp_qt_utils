@@ -11,7 +11,7 @@ namespace
 struct PrivateState_lt
 {
   TPMutex mutex{TPM};
-  QHash<void*, QHash<tp_utils::StringID, ProcessStatusMessage>> messages;
+  std::unordered_map<void*, QHash<tp_utils::StringID, ProcessStatusMessage>> messages;
 };
 
 PrivateState_lt& privateState()
@@ -82,17 +82,17 @@ QString serializeProcessStatusMessagesHTML(const QList<ProcessStatusMessage>& st
   static const QString pattern("%1:%2:%3\n");
   QString serialized;
 
-  QHash<tp_utils::StringID, const ProcessStatusMessage*> statusMessageMap;
+  std::unordered_map<tp_utils::StringID, const ProcessStatusMessage*> statusMessageMap;
 
   Q_FOREACH(const ProcessStatusMessage& message, statusMessages)
-    statusMessageMap.insert(message.messageName, &message);
+    statusMessageMap[message.messageName] =  &message;
 
-  QList<tp_utils::StringID> keys = statusMessageMap.keys();
+  std::vector<tp_utils::StringID> keys = tpKeys(statusMessageMap);
   std::sort(keys.begin(), keys.end(), tp_utils::lessThanStringID);
 
   Q_FOREACH(const tp_utils::StringID& key, keys)
   {
-    const ProcessStatusMessage& message = *statusMessageMap.value(key);
+    const ProcessStatusMessage& message = *statusMessageMap[key];
 
     if(remove.contains(message.messageName))
       continue;

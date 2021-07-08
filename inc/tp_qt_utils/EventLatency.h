@@ -13,6 +13,7 @@ namespace tp_qt_utils
 //! Times the processing latency of the event queue.
 class TP_QT_UTILS_SHARED_EXPORT EventLatency: public QObject
 {
+  Q_OBJECT
 public:
   //################################################################################################
   EventLatency(const std::string& name);

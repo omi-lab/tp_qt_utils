@@ -196,7 +196,7 @@ class PartialPacket
   int_fast32_t m_index{0};
   int_fast32_t m_bufferSize;
   char* m_commandBuffer;
-  QList<SerialMessage> m_messages;
+  QVector<SerialMessage> m_messages;
 public:
   //################################################################################################
   PartialPacket(int bufferSize);
