@@ -41,7 +41,7 @@ void Progress::setProgress(float percent)
   d->progress = percent;
   d->mutex.unlock(TPM);
 
-  emit changed();
+  Q_EMIT changed();
 }
 
 //##################################################################################################
@@ -52,7 +52,7 @@ void Progress::setProgress(float percent, const QString& description)
   d->description = description;
   d->mutex.unlock(TPM);
 
-  emit changed();
+  Q_EMIT changed();
 }
 
 //##################################################################################################
@@ -62,7 +62,7 @@ void Progress::setDescription(const QString& description)
   d->description = description;
   d->mutex.unlock(TPM);
 
-  emit changed();
+  Q_EMIT changed();
 }
 
 //##################################################################################################
