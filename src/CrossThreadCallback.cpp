@@ -23,10 +23,10 @@ struct CrossThreadCallback::Private: public QObject
   }
 
   //################################################################################################
-  void customEvent(QEvent*) final;
+  void customEvent(QEvent*) override;
 
   //################################################################################################
-  void timerEvent(QTimerEvent*) final;
+  void timerEvent(QTimerEvent*) override;
 };
 
 //##################################################################################################
