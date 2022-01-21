@@ -50,16 +50,16 @@ void ExplicitStringIDManager::addKeys(const QList<QPair<std::string, int64_t> >&
 }
 
 //##################################################################################################
-int64_t ExplicitStringIDManager::key(const std::string& keyString)
+int64_t ExplicitStringIDManager::key(const std::string& toString)
 {
-  if(keyString.empty())
+  if(toString.empty())
     return 0;
 
   d->mutex.lock(TPM);
-  int64_t key = d->keys.value(keyString, 0);
+  int64_t key = d->keys.value(toString, 0);
 
   if(!key)
-    tpWarning() << "ExplicitStringIDManager::key() Failed to find key for: " << keyString;
+    tpWarning() << "ExplicitStringIDManager::key() Failed to find key for: " << toString;
 
   d->mutex.unlock(TPM);
 
@@ -67,13 +67,13 @@ int64_t ExplicitStringIDManager::key(const std::string& keyString)
 }
 
 //##################################################################################################
-std::string ExplicitStringIDManager::keyString(int64_t key)
+std::string ExplicitStringIDManager::toString(int64_t key)
 {
   d->mutex.lock(TPM);
-  std::string keyString = d->stringKeys.value(key);
+  std::string toString = d->stringKeys.value(key);
   d->mutex.unlock(TPM);
 
-  return keyString;
+  return toString;
 }
 
 }

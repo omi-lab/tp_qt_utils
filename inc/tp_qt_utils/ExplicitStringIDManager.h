@@ -23,10 +23,10 @@ public:
   void addKeys(const QList<QPair<std::string, int64_t> >& sids);
 
   //################################################################################################
-  int64_t key(const std::string& keyString) override;
+  int64_t key(const std::string& toString) override;
 
   //################################################################################################
-  std::string keyString(int64_t key) override;
+  std::string toString(int64_t key) override;
 
 private:
   struct Private;
