@@ -6,9 +6,6 @@ DEFINES += TP_QT_UTILS_LIBRARY
 SOURCES += src/Globals.cpp
 HEADERS += inc/tp_qt_utils/Globals.h
 
-SOURCES += src/ExplicitStringIDManager.cpp
-HEADERS += inc/tp_qt_utils/ExplicitStringIDManager.h
-
 SOURCES += src/FileUtils.cpp
 HEADERS += inc/tp_qt_utils/FileUtils.h
 
