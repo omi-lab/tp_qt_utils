@@ -1,5 +1,7 @@
 #include "tp_qt_utils/CrossThreadCallback.h"
 
+#include "tp_utils/RefCount.h"
+
 #include <QCoreApplication>
 
 namespace tp_qt_utils

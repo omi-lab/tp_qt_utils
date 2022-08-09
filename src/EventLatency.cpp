@@ -2,6 +2,7 @@
 
 #include "tp_utils/MutexUtils.h"
 #include "tp_utils/TimeUtils.h"
+#include "tp_utils/RefCount.h"
 
 #include <QCoreApplication>
 #include <QEvent>
