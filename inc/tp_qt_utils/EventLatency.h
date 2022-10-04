@@ -6,6 +6,8 @@
 #include <QObject>
 #include <QEvent>
 
+#include <unordered_map>
+
 namespace tp_qt_utils
 {
 
