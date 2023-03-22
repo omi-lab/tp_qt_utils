@@ -2,6 +2,7 @@
 #define tp_qt_utils_Globals_h
 
 #include "tp_utils/StringID.h"
+#include "tp_utils/CallbackCollection.h"
 
 #if defined(TP_QT_UTILS_LIBRARY)
 #  define TP_QT_UTILS_SHARED_EXPORT TP_EXPORT
@@ -27,6 +28,30 @@ TP_DECLARE_ID(     dictionarySID,       "Dictionary");
 
 //##################################################################################################
 QStringList convertStringList(const std::vector<std::string>& src);
+
+//##################################################################################################
+template<typename T>
+class QObjectCallback;
+
+//##################################################################################################
+template<typename R, typename... Args>
+class QObjectCallback<R(Args...)> : public QObject, public tp_utils::Callback<R(Args...)>
+{
+  public:
+  //################################################################################################
+  QObjectCallback() = delete;
+
+  //################################################################################################
+  template<typename F>
+  QObjectCallback(QObject* parent,
+                  tp_utils::CallbackCollection<R(Args...)>& collection,
+                  const F& callback):
+    QObject(parent),
+    tp_utils::Callback<R(Args...)>(callback)
+  {
+    tp_utils::Callback<R(Args...)>::connect(collection);
+  }
+};
 
 }
 
