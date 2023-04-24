@@ -12,6 +12,7 @@
 
 #include <QStringList>
 #include <QDebug>
+#include <QObject>
 
 #include <QtCore/qglobal.h>
 
