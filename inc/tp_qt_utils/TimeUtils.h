@@ -71,8 +71,10 @@ QDateTime TP_QT_UTILS_SHARED_EXPORT toDateTime(const QString& secsSinceEpoch);
 class TP_QT_UTILS_SHARED_EXPORT TimingStats
 {
 public:
+  //################################################################################################
   static void logTime(const char* name, const char* file, int line, int time);
 
+  //################################################################################################
   static QString takeResults();
 
 private:

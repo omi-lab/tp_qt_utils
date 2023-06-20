@@ -217,7 +217,6 @@ QString TimingStats::takeResults()
     timeDetails->recent=0;
   }
 
-
   return result;
 }
 
