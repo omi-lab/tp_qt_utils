@@ -84,11 +84,8 @@ QMap<QString, QString> parseConfigFiles(const QStringList& fileNames)
     lines.append(content.split(QChar('\n')));
   }
 
-  int ln=1;
   Q_FOREACH(QString line, lines)
   {
-    ln++;
-
     int commentIndex = line.indexOf(QChar('#'));
     if(commentIndex != -1)
       line = line.left(commentIndex);
