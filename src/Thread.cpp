@@ -8,13 +8,8 @@ namespace tp_qt_utils
 //################################################################################################
 Thread::Thread()
 {
-  QObject::connect(this, &Thread::finished, this, &Thread::doFinish);
+  QObject::connect(this, &Thread::finished, this, &QObject::deleteLater);
+  start();
 }
 
-//################################################################################################
-void Thread::doFinish()
-{
-  finish();
-}
-    
 }
