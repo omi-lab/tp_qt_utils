@@ -46,20 +46,18 @@ public:
   //################################################################################################
   virtual ~ThrottlerProcessVector(){}
   
+  //################################################################################################
+  virtual bool finished() const override { return bool(m_offset >= m_vecSize); }
+
 private:
 
   //################################################################################################
   virtual void step() override;
 
   //################################################################################################
-  virtual void processVecElement(std::size_t offset) = 0;
-  virtual void finish() = 0;
-
-  //################################################################################################
-  virtual bool finished() const override { return bool(m_offset >= m_vecSize) && m_calledFinish; }
+  virtual void processChunk(std::size_t offset, std::size_t n) = 0;
 
   std::size_t m_vecSize, m_maxNToProcess, m_offset;
-  bool m_calledFinish = false;
 };
     
 }

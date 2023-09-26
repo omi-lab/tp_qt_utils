@@ -10,8 +10,9 @@ namespace tp_qt_utils
 {
 
 //##################################################################################################
-// Auto-start and auto-destruct thread class, designed to be stored in a QPointer, not a std pointer
-// because of auto-destruct functionality.
+// Auto-destruct thread class, designed to be stored in a QPointer, not a std pointer because of
+// auto-destruct functionality. Re-implement the constructor, run() function and the virtual
+// destructor as required.
 class TP_QT_UTILS_SHARED_EXPORT Thread: public QThread
 {
   Q_OBJECT
@@ -19,8 +20,6 @@ class TP_QT_UTILS_SHARED_EXPORT Thread: public QThread
 public:
   //################################################################################################
   Thread();
-
-private:
 };
 
 }

@@ -23,7 +23,7 @@ void Throttler::execNextStep()
   if(!finished())
     m_timer.start(m_timeOutMS);
   else // finished()
-    m_timer.stop();
+    deleteLater();
 }
 
 //################################################################################################
@@ -38,20 +38,10 @@ ThrottlerProcessVector::ThrottlerProcessVector(std::size_t vecSize, std::size_t 
 //################################################################################################
 void ThrottlerProcessVector::step()
 {
-  if(m_offset < m_vecSize)
-  {
-    TP_FUNCTION_TIME("ThrottlerProcessVector::step");
-    std::size_t nextOffset = std::min<std::size_t>(m_offset + m_maxNToProcess, m_vecSize);
-    for(std::size_t i=m_offset; i<nextOffset; ++i)
-      processVecElement(i);
-
-    m_offset = nextOffset;
-  }
-  else
-  {
-    finish();
-    m_calledFinish = true;
-  }
+  TP_FUNCTION_TIME("ThrottlerProcessVector::step");
+  std::size_t nextOffset = std::min<std::size_t>(m_offset + m_maxNToProcess, m_vecSize);
+  processChunk(m_offset, nextOffset-m_offset);
+  m_offset = nextOffset;
 }
     
 }
