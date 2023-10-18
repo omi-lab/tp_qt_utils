@@ -1,47 +1,93 @@
-#include <tp_qt_utils/Throttler.h>
+#include "tp_qt_utils/Throttler.h"
 
 #include "tp_utils/TimeUtils.h"
+
+#include <QTimer>
 
 #include <limits>
 
 namespace tp_qt_utils
 {
 
-//################################################################################################
-Throttler::Throttler(int64_t timeOutMS)
-    : m_timeOutMS(timeOutMS)
+//##################################################################################################
+struct Throttler::SharedData
 {
-  m_timer.setSingleShot(true);
-  QObject::connect(&m_timer, &QTimer::timeout, this, &Throttler::execNextStep, Qt::DirectConnection);
-  m_timer.start(timeOutMS);
+  QTimer timer;
+
+  std::vector<Throttler*> throttlers;
+  size_t runNext{0};
+  int64_t yieldAfter{0};
+
+  //################################################################################################
+  SharedData()
+  {
+    QObject::connect(&timer, &QTimer::timeout, &timer, [&]
+    {
+      yieldAfter = tp_utils::currentTimeMicroseconds()+1000;
+      do
+      {
+        if(runNext>=throttlers.size())
+          runNext = 0;
+
+        throttlers.at(runNext)->m_callback();
+        runNext++;
+      }while(!throttlers.empty() && !shouldYield());
+    });
+  }
+
+  //################################################################################################
+  bool shouldYield() const
+  {
+    return tp_utils::currentTimeMicroseconds()>yieldAfter;
+  }
+};
+
+//##################################################################################################
+Throttler::Throttler(const std::function<void()>& callback):
+  m_callback(callback)
+{
+
+}
+
+//##################################################################################################
+Throttler::~Throttler()
+{
+  stop();
+}
+
+//##################################################################################################
+void Throttler::start()
+{
+  auto& i = instance();
+  if(std::find(i.throttlers.begin(), i.throttlers.end(), this) == i.throttlers.end())
+  {
+    i.throttlers.push_back(this);
+    if(i.throttlers.size() == 1)
+      i.timer.start(0);
+  }
+}
+
+//##################################################################################################
+void Throttler::stop()
+{
+  auto& i = instance();
+  tpRemoveOne(i.throttlers, this);
+  if(i.throttlers.empty())
+    i.timer.stop();
+}
+
+
+//##################################################################################################
+bool Throttler::shouldYield() const
+{
+  return instance().shouldYield();
 }
 
 //################################################################################################
-void Throttler::execNextStep()
+Throttler::SharedData& Throttler::instance()
 {
-  step();
-  if(!finished())
-    m_timer.start(m_timeOutMS);
-  else // finished()
-    deleteLater();
+  thread_local static SharedData instance;
+  return instance;
 }
 
-//################################################################################################
-ThrottlerProcessVector::ThrottlerProcessVector(std::size_t vecSize, std::size_t maxNToProcess, int64_t timeOutMS)
-    : Throttler(timeOutMS)
-    , m_vecSize(vecSize)
-    , m_maxNToProcess(maxNToProcess)
-    , m_offset(0)
-{
-}
-
-//################################################################################################
-void ThrottlerProcessVector::step()
-{
-  TP_FUNCTION_TIME("ThrottlerProcessVector::step");
-  std::size_t nextOffset = std::min<std::size_t>(m_offset + m_maxNToProcess, m_vecSize);
-  processChunk(m_offset, nextOffset-m_offset);
-  m_offset = nextOffset;
-}
-    
 }
