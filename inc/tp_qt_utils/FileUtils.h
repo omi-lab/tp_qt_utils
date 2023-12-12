@@ -87,17 +87,6 @@ This will zip a single file using the standard .zip file format and return the z
 */
 bool TP_QT_UTILS_SHARED_EXPORT createZip(const QString& fileName, const QByteArray& data, QByteArray& zippedData);
 
-//##################################################################################################
-//! This tries to guess the image type from the image data
-/*!
-This tries to guess the image type from the image data, if that fails it will try to use the name.
-
-\param data - The image data.
-\param name - The file name of the image where available.
-\return The guessed type.
-*/
-QString guessImageFormat(const QByteArray& data, const QString& name=QString());
-
 
 }
 

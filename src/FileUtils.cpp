@@ -204,32 +204,5 @@ bool createZip(const QString& fileName, const QByteArray& data, QByteArray& zipp
   return true;
 }
 #endif
-
-//##################################################################################################
-QString guessImageFormat(const QByteArray& data, const QString& name)
-{
-  if(data.startsWith("\xFF\xD8\xFF"))
-    return "jpg";
-
-  if(data.startsWith("\x89\x50\x4E\x47\x0D\x0A\x1A\x0A"))
-    return "png";
-
-  if(data.startsWith("GIF87a") || data.startsWith("GIF89a"))
-    return "gif";
-
-  if(data.startsWith("\x49\x49\x2A\x00") || data.startsWith("\x4D\x4D\x00\x2A"))
-    return "tiff";
-
-  if(data.startsWith("BM"))
-    return "bmp";
-
-  if(data.startsWith("RIFF") || data.startsWith("WEBP"))
-    return "webp";
-
-  if(data.startsWith("\x00\x00\x01\x00") || data.startsWith("\x00\x00\x02\x00"))
-    return "ico";
-
-  return name.split('.').last();
-}
 }
 
