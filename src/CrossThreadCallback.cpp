@@ -1,6 +1,7 @@
 #include "tp_qt_utils/CrossThreadCallback.h"
 
 #include "tp_utils/RefCount.h"
+#include "tp_utils/MutexUtils.h" // IWYU pragma: keep
 
 #include <QCoreApplication>
 
@@ -16,46 +17,62 @@ struct CrossThreadCallback::Private: public QObject
   int delay;
   int timerID{0};
 
+  // Kludge to get arround false positives caused by QCoreApplication::postEvent in thread sanitizer.
+#ifdef TP_SANITIZE_THREAD
+  TPMutex mutex{TPM};
+  int pollTimerID{startTimer(10)};
+  int triggered{0};
+#endif
+
   //################################################################################################
   Private(CrossThreadCallback* q_, int delay_):
     q(q_),
     delay(delay_)
   {
-
   }
 
   //################################################################################################
-  void customEvent(QEvent*) override;
+  void customEvent(QEvent*) override
+  {
+    if(delay>=0)
+    {
+      if(timerID==0)
+        timerID=startTimer(delay);
+    }
+    else
+    {
+      q->callback();
+    }
+  }
 
   //################################################################################################
-  void timerEvent(QTimerEvent*) override;
-};
+  void timerEvent(QTimerEvent* timerEvent) override
+  {
+#ifdef TP_SANITIZE_THREAD
+    if(pollTimerID == timerEvent->timerId())
+    {
+      TP_MUTEX_LOCKER(mutex);
+      while(triggered>0)
+      {
+        triggered--;
+        TP_MUTEX_UNLOCKER(mutex);
+        customEvent(nullptr);
+      }
+      return;
+    }
+#else
+    TP_UNUSED(timerEvent);
+#endif
 
-//##################################################################################################
-void CrossThreadCallback::Private::customEvent(QEvent*)
-{
-  if(delay>=0)
-  {
-    if(timerID==0)
-      timerID=startTimer(delay);
-  }
-  else
-  {
+    if(timerID)
+    {
+      killTimer(timerID);
+      timerID=0;
+    }
+
     q->callback();
   }
-}
-
-//##################################################################################################
-void CrossThreadCallback::Private::timerEvent(QTimerEvent*)
-{
-  if(timerID)
-  {
-    killTimer(timerID);
-    timerID=0;
-  }
-
-  q->callback();
-}
+};
 
 //##################################################################################################
 CrossThreadCallback::CrossThreadCallback(const std::function<void()>& callback, int delay):
@@ -82,7 +99,11 @@ CrossThreadCallback::~CrossThreadCallback()
 //##################################################################################################
 void CrossThreadCallback::call()
 {
+#ifdef TP_SANITIZE_THREAD
+  d->mutex.locked([&]{d->triggered++;});
+#else
   QCoreApplication::postEvent(d, new QEvent(QEvent::User));
+#endif
 }
 
 }
