@@ -23,6 +23,7 @@ An event will be sent to the receiving thread that causes the callback to be cal
 */
 class TP_QT_UTILS_SHARED_EXPORT CrossThreadCallback : public tp_utils::AbstractCrossThreadCallback
 {
+  TP_DQ;
 public:
   //################################################################################################
   /*!
@@ -39,11 +40,6 @@ public:
 
   //################################################################################################
   void call() override;
-
-private:
-  struct Private;
-  friend struct Private;
-  Private* d;
 };
 
 //##################################################################################################

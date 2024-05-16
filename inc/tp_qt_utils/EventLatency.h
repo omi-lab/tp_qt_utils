@@ -16,6 +16,7 @@ namespace tp_qt_utils
 class TP_QT_UTILS_SHARED_EXPORT EventLatency: public QObject
 {
   Q_OBJECT
+  TP_DQ;
 public:
   //################################################################################################
   EventLatency(const std::string& name);
@@ -38,11 +39,6 @@ protected:
 
   //################################################################################################
   void customEvent(QEvent *event) override;
-
-private:
-  struct Private;
-  friend struct Private;
-  Private* d;
 };
 
 }
