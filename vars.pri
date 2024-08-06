@@ -30,9 +30,6 @@ HEADERS += inc/tp_qt_utils/TimerCallback.h
 SOURCES += src/CrossThreadCallback.cpp
 HEADERS += inc/tp_qt_utils/CrossThreadCallback.h
 
-SOURCES += src/FormatNumbers.cpp
-HEADERS += inc/tp_qt_utils/FormatNumbers.h
-
 SOURCES += src/FormatXML.cpp
 HEADERS += inc/tp_qt_utils/FormatXML.h
 
