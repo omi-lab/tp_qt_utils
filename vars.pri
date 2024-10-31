@@ -38,3 +38,6 @@ HEADERS += inc/tp_qt_utils/EventLatency.h
 
 SOURCES += src/Throttler.cpp
 HEADERS += inc/tp_qt_utils/Throttler.h
+
+SOURCES += src/TPQSettings.cpp
+HEADERS += inc/tp_qt_utils/TPQSettings.h
