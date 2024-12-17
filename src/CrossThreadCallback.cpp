@@ -13,7 +13,7 @@ struct CrossThreadCallback::Private: public QObject
   TP_REF_COUNT_OBJECTS("tp_qt_utils::CrossThreadCallback::Private");
   TP_NONCOPYABLE(Private);
 
-  CrossThreadCallback* q;
+  Q* q;
   int delay;
   int timerID{0};
 
@@ -25,7 +25,7 @@ struct CrossThreadCallback::Private: public QObject
 #endif
 
   //################################################################################################
-  Private(CrossThreadCallback* q_, int delay_):
+  Private(Q* q_, int delay_):
     q(q_),
     delay(delay_)
   {
