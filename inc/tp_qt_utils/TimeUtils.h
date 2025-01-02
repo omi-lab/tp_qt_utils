@@ -78,8 +78,8 @@ public:
   static QString takeResults();
 
 private:
-  struct Private;
-  static Private* instance();
+  struct Instance;
+  static Instance* instance();
 };
 
 

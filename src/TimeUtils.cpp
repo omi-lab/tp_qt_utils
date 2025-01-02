@@ -141,7 +141,7 @@ QString fixedWidthKeepRight(const QString& data, int len, char pad)
 }
 
 //##################################################################################################
-struct TimingStats::Private
+struct TimingStats::Instance
 {
   TPMutex mutex{TPM};
   QMap<QString, TimeDetails_lt> timeDetails;
@@ -221,9 +221,9 @@ QString TimingStats::takeResults()
 }
 
 //##################################################################################################
-TimingStats::Private* TimingStats::instance()
+TimingStats::Instance* TimingStats::instance()
 {
-  static TimingStats::Private instance;
+  static TimingStats::Instance instance;
   return &instance;
 }
 
