@@ -41,3 +41,6 @@ HEADERS += inc/tp_qt_utils/Throttler.h
 
 SOURCES += src/TPQSettings.cpp
 HEADERS += inc/tp_qt_utils/TPQSettings.h
+
+SOURCES += src/TPFileSettings.cpp
+HEADERS += inc/tp_qt_utils/TPFileSettings.h
