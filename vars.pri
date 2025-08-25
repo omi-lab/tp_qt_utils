@@ -15,9 +15,6 @@ HEADERS += inc/tp_qt_utils/DebugUtils.h
 SOURCES += src/ValidationUtils.cpp
 HEADERS += inc/tp_qt_utils/ValidationUtils.h
 
-SOURCES += src/BinaryUtils.cpp
-HEADERS += inc/tp_qt_utils/BinaryUtils.h
-
 SOURCES += src/EventDebug.cpp
 HEADERS += inc/tp_qt_utils/EventDebug.h
 

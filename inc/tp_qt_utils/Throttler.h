@@ -9,6 +9,7 @@ namespace tp_qt_utils
 //##################################################################################################
 class TP_QT_UTILS_SHARED_EXPORT Throttler
 {
+  TP_NONCOPYABLE(Throttler);
 public:
   //################################################################################################
   Throttler(const std::function<void()>& callback);

@@ -6,8 +6,7 @@
 #include <QObject>
 #include <QDateTime>
 #include <QDebug>
-
-#include <chrono>
+#include <QTimeZone>
 
 namespace tp_qt_utils
 {
@@ -25,7 +24,7 @@ struct TimeDetails_lt
 //##################################################################################################
 QDateTime currentDateTime()
 {
-  return QDateTime::fromMSecsSinceEpoch(tp_utils::currentTime()*1000ll,Qt::UTC);
+    return QDateTime::fromMSecsSinceEpoch(tp_utils::currentTime()*1000ll, QTimeZone::utc());
 }
 
 //##################################################################################################
@@ -37,7 +36,7 @@ QString currentTimeString()
 //##################################################################################################
 QString timeString(int64_t time)
 {
-  return QDateTime::fromMSecsSinceEpoch(time*1000ll,Qt::UTC).toString();
+  return QDateTime::fromMSecsSinceEpoch(time*1000ll,QTimeZone::utc()).toString();
 }
 
 //##################################################################################################
@@ -103,14 +102,14 @@ int64_t toDay(const QString& secsSinceEpoch)
 //################################################################################################
 int64_t toWeek(int64_t secsSinceEpoch)
 {
-  const QDateTime dateTime = QDateTime::fromMSecsSinceEpoch(toDay(secsSinceEpoch)*1000, Qt::UTC);
+  const QDateTime dateTime = QDateTime::fromMSecsSinceEpoch(toDay(secsSinceEpoch)*1000, QTimeZone::utc());
   return dateTime.addDays(dateTime.date().dayOfWeek() - 1).toMSecsSinceEpoch()/1000;
 }
 
 //################################################################################################
 int64_t toMonth(int64_t secsSinceEpoch)
 {
-  QDateTime dateTime = QDateTime::fromMSecsSinceEpoch(toDay(secsSinceEpoch)*1000, Qt::UTC);
+  QDateTime dateTime = QDateTime::fromMSecsSinceEpoch(toDay(secsSinceEpoch)*1000, QTimeZone::utc());
   dateTime.setDate(QDate(dateTime.date().year(), dateTime.date().month(), 1));
   return dateTime.toMSecsSinceEpoch()/1000;
 }
@@ -118,7 +117,7 @@ int64_t toMonth(int64_t secsSinceEpoch)
 //################################################################################################
 QDateTime toDateTime(int64_t secsSinceEpoch)
 {
-  return QDateTime::fromMSecsSinceEpoch(1000ll*secsSinceEpoch, Qt::UTC);
+  return QDateTime::fromMSecsSinceEpoch(1000ll*secsSinceEpoch, QTimeZone::utc());
 }
 
 //################################################################################################
